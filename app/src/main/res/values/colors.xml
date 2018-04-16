@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <!--主要的颜色-->
+    <color name="kaishugreen">#82ce6a</color>
+    <color name="kaishudeepgreen">#28b4b9</color>
+
+    <color name="colorYellow">#ffac2d</color>
+    <color name="works_yellow">#ff7f00</color>
+    <color name="containerbgcolor">#F7F7F7</color>
+
+    <color name="dark_yellow">#ff7000</color>
+
+    <color name="divider_line_color">#e6e6e6</color>
+    <color name="action_bar_line_color">#e6e6e6</color>
+
+
+    <color name="comment_list_divider_line">#1A000000</color>
+    <color name="common_divider_bg">#E5E5E5</color>
+
+    <color name="detail_group_titlebg_color">#f9f9f9</color>
+    <color name="detail_group_itembg_color">#fbfbfb</color>
+
+    <color name="textcolor_5c">#5C5C5C</color>
+    <color name="gray_f0f0f0">#f0f0f0</color>
+    <color name="textcolor_989898">#989898</color>
+    <color name="textcolor_888">#888</color>
+    <color name="textcolor_757575">#757575</color>
+    <color name="gray_real_66">#666666</color>
+    <color name="gray_333">#333333</color>
+    <color name="gray_aaa">#aaaaaa</color>
+    <color name="app_weixin_green">#5ecb3e</color>
+    <color name="vip_item_red">#fe614b</color>
+    <color name="gray_999">#999999</color>
+    <color name="gray_666">#BDBDBD</color>
+    <color name="gray_444">#444</color>
+    <color name="gray_555">#555</color>
+    <color name="textcolor_ccc">#cccccc</color>
+    <color name="textcolor_a3">#a3a3a3</color>
+    <color name="textcolor_c3">#c3c3c3</color>
+    <color name="textcolor_9b">#9b9b9b</color>
+    <color name="textcolor_b5b5b5">#b5b5b5</color>
+
+    <color name="color_eee">#eeeeee</color>
+    <color name="color_eaeaea">#eaeaea</color>
+    <color name="color_494949">#494949</color>
+    <color name="color_15181b">#15181b</color>
+    <color name="color_6a6a6a">#6a6a6a</color>
+    <color name="color_bbbbbb">#bbbbbb</color>
+    <color name="color_a5a5a5">#a5a5a5</color>
+    <color name="color_fe8f7d">#fe8f7d</color>
+    <color name="color_f2f2f2">#f2f2f2</color>
+
+    <!--Window 的颜色-->
+
+    <color name="orderlist_bg_color">#f0f3f5</color>
+
+    <!-- 标签边框的颜色-->
+    <color name="tag_waku">#CBCAC8</color>
+
+
+    <color name="light_red">#ff5f4b</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#63B8FF</color>
+    <color name="gray">#969696</color>
+
+    <color name="ligth_blue">#77c5f7</color>
+
+    <color name="common_f7_color">#f7f7f7</color>
+
+    <color name="gray_fafa">#FAFAFA</color>
+    <color name="gray_dede">#dedede</color>
+    <color name="gray_dddd">#dddddd</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#404040</color>
+    <color name="app_new_year_color">#ff3334</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="color1">#ff0f9d58</color>
+    <color name="color2">#ffdb4437</color>
+    <color name="color3">#ff4285f4</color>
+    <color name="color4">#fff4b400</color>
+
+    <color name="subhead_gray">#9b9b9b</color>
+
+    <!--loginByMobile register-->
+
+
+    <!-- list 以及按下去的背景颜色 -->
+    <color name="common_list_selector">#f3f3f3</color>
+    <color name="common_list_selector_press">#efeff4</color>
+
+    <!--  new_album_botton -->
+    <!--主题绿色  title weichat_login_bg -->
+    <!--手机号登录背景色-->
+
+
+    <!-- 侧滑listview  item 删除背景色-->
+    <!-- listview  devider背景色-->
+
+    <color name="comment_msg_bg_color">#f8f8f8</color>
+    <color name="default_clickable_color">#cccccc</color>
+    <color name="color_8290AF">#8290AF</color>
+
+
+
+
+</resources>

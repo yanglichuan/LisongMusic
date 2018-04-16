@@ -1,0 +1,103 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">LisongMusic</string>
+
+
+    <string name="transname1" translatable="false">transname1</string>
+    <string name="transname2" translatable="false">transname2</string>
+    <string name="transname3" translatable="false">transname3</string>
+
+
+    <string name="lookpic" translatable="false">lookpic</string>
+
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="share_success_text">分享成功</string>
+    <string name="share_failed_text">分享失败</string>
+    <string name="share_cancel_text">分享取消</string>
+
+    <string name="tuiguang_more_detail">活动详情 &#xe640;</string>
+    <string name="tuiguang_my_money_list">我的收益记录 &#xe640;</string>
+    <string name="tuiguang_my_yeji_list">我的业绩 &#xe640;</string>
+
+    <string name="works_info_rank_text">新作品获得%1$s分，超过全国%2$s的小朋友</string>
+
+    <!-- 字体图标 -->
+    <string name="iconfont_like">&#xe654;</string>
+    <string name="iconfont_dislike">&#xe653;</string>
+    <string name="iconfont_list_close">&#xe62c;</string>
+    <string name="iconfont_gender_male">&#xe629;</string>
+    <string name="iconfont_gender_female">&#xe621;</string>
+    <string name="iconfont_my_album">&#xe612;</string>
+    <string name="iconfont_listened">&#xe674;</string>
+
+    <string name="iconfont_mine_collect">&#xe6b5;</string>
+    <string name="iconfont_mine_download">&#xe662;</string>
+    <string name="iconfont_mine_works">&#xe69c;</string>
+    <string name="iconfont_mine_edit">&#xe66f;</string>
+
+    <string name="iconfont_del_tong">&#xe614;</string>
+    <string name="iconfont_kefu">&#xe61b;</string>
+    <string name="iconfont_back">&#xe61d;</string>
+    <string name="iconfont_onetouch_voice">&#xe61e;</string>
+    <string name="iconfont_my_order">&#xe636;</string>
+    <string name="iconfont_my_buyed">&#xe637;</string>
+    <string name="iconfont_pingjia">&#xe63a;</string>
+    <string name="iconfont_version">&#xe675;</string>
+    <string name="iconfont_youhuiquan">&#xe66e;</string>
+    <string name="iconfont_my_arrowright">&#xe610;</string>
+    <string name="iconfont_mine_tuiguang">&#xe642;</string>
+    <string name="iconfont_mine_bangding">&#xe63e;</string>
+    <string name="iconfont_mine_kbin">&#xe643;</string>
+    <string name="iconfont_mine_phone">&#xe646;</string>
+    <string name="iconfont_mine_weixin">&#xe64b;</string>
+    <string name="iconfont_mine_duihuanma">&#xe64e;</string>
+    <string name="iconfont_mine_gift">&#xe6a3;</string>
+    <string name="iconfont_mine_saoyisao">&#xe64f;</string>
+    <string name="iconfont_app_gougou">&#xe649;</string>
+    <string name="iconfont_comment_icon">&#xe62f;</string>
+    <string name="iconfont_hot_fire">&#xe66a;</string>
+    <string name="iconfont_hot_up">&#xe66b;</string>
+
+    <string name="iconfont_youzanmall">&#xe69e;</string>
+    <string name="iconfont_yzorder">&#xe69f;</string>
+
+    <string translatable="false" name="iconfont_more_arrow">更多&#xe610;</string>
+    <string translatable="false" name="iconfont_quanbu_arrow">全部&#xe610;</string>
+
+    <string name="iconfont_docu_more_arrow">查看全部留言 &#xe610;</string>
+
+    <!--<string translatable="false" name="error_drm_not_supported">Protected content not supported on API levels below 18</string>-->
+    <!--<string translatable="false" name="error_drm_unsupported_scheme">This device does not support the required DRM scheme</string>-->
+    <!--<string translatable="false" name="error_drm_unknown">An unknown DRM error occurred</string>-->
+    <!--<string translatable="false" name="error_no_decoder">This device does not provide a decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>-->
+    <!--<string translatable="false" name="error_no_secure_decoder">This device does not provide a secure decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>-->
+    <!--<string translatable="false" name="error_querying_decoders">Unable to query device decoders</string>-->
+    <!--<string translatable="false" name="error_instantiating_decoder">Unable to instantiate decoder <xliff:g id="decoder_name">%1$s</xliff:g></string>-->
+    <!--<string translatable="false" name="storage_permission_denied">Permission to access storage was denied</string>-->
+
+
+    <!-- The user visible name of the application. [CHAR LIMIT=20] -->
+    <string translatable="false" name="error_no_decoder">This device does not provide a decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string translatable="false" name="error_no_secure_decoder">This device does not provide a secure decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string translatable="false" name="error_querying_decoders">Unable to query device decoders</string>
+    <string translatable="false" name="error_instantiating_decoder">Unable to instantiate decoder <xliff:g id="decoder_name">%1$s</xliff:g></string>
+
+
+
+    <string name="update_app_model_prepare">preparing to download</string>
+    <string name="update_app_model_progress">downloading %1$d%2$s</string>
+    <string name="update_app_model_success">download success(click install)</string>
+    <string name="update_app_model_error">download fail(click to use the browser to download)</string>
+
+
+
+    <string translatable="false" name="loading">正在加载中...</string>
+    <string translatable="false" name="load_failed">加载失败，请点我重试</string>
+    <string translatable="false" name="load_end">没有更多数据</string>
+
+
+</resources>

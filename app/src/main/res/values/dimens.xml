@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="home_round_cornor">4dp</dimen>
+    <dimen name="home_vip_flag_width">21dp</dimen>
+    <dimen name="home_vip_flag_height">21dp</dimen>
+
+    <dimen name="toolbar_padding_top">0dp</dimen>
+
+
+    <dimen name="main_tabbaar_h">50dp</dimen>
+
+    <dimen name="textsize_9">9sp</dimen>
+    <dimen name="textsize_12">11sp</dimen>
+    <dimen name="textsize_13">12sp</dimen>
+    <dimen name="textsize_14">13sp</dimen>
+    <dimen name="textsize_15">14sp</dimen>
+    <dimen name="textsize_16">15sp</dimen>
+    <dimen name="textsize_17">15sp</dimen>
+    <dimen name="textsize_18">16sp</dimen>
+    <dimen name="textsize_19">17sp</dimen>
+    <dimen name="textsize_20">18sp</dimen>
+    <dimen name="textsize_22">20sp</dimen>
+    <dimen name="textsize_23">21sp</dimen>
+    <dimen name="textsize_24">22sp</dimen>
+    <dimen name="textsize_26">24sp</dimen>
+    <dimen name="textsize_28">26sp</dimen>
+    <dimen name="textsize_30">28sp</dimen>
+    <dimen name="textsize_32">30sp</dimen>
+    <dimen name="textsize_50">48sp</dimen>
+    <dimen name="textsize_70">70sp</dimen>
+    <dimen name="textsize_25">23sp</dimen>
+
+    <dimen name="app_text_size_17">17sp</dimen>
+    <dimen name="app_text_size_15">15sp</dimen>
+    <dimen name="app_text_size_13">13sp</dimen>
+
+    <!--<dimen name="textsize_10">10sp</dimen>-->
+    <!--<dimen name="textsize_11">11sp</dimen>-->
+    <!--<dimen name="textsize_12">12sp</dimen>-->
+    <!--<dimen name="textsize_13">13sp</dimen>-->
+    <!--<dimen name="textsize_14">14sp</dimen>-->
+    <!--<dimen name="textsize_15">15sp</dimen>-->
+    <!--<dimen name="textsize_16">16sp</dimen>-->
+    <!--<dimen name="textsize_17">17sp</dimen>-->
+    <!--<dimen name="textsize_18">18sp</dimen>-->
+    <!--<dimen name="textsize_19">19sp</dimen>-->
+    <!--<dimen name="textsize_20">20sp</dimen>-->
+    <!--<dimen name="textsize_22">22sp</dimen>-->
+    <!--<dimen name="textsize_26">26sp</dimen>-->
+    <!--<dimen name="textsize_28">28sp</dimen>-->
+    <!--<dimen name="textsize_30">30sp</dimen>-->
+    <!--<dimen name="textsize_32">32sp</dimen>-->
+    <!--<dimen name="textsize_50">50sp</dimen>-->
+    <!--<dimen name="textsize_70">70sp</dimen>-->
+    <!--<dimen name="textsize_25">25sp</dimen>-->
+
+
+    <!--<dimen name="main_tabbaar_h">?attr/actionBarSize</dimen>-->
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!--DragAndDropRecycleView dimens 里面也有  值一样-->
+    <!--<dimen name="activity_horizontal_margin">16dp</dimen>-->
+    <!--<dimen name="activity_vertical_margin">16dp</dimen>-->
+
+    <!-- 选择关闭时间条目的高度-->
+    <dimen name="icon_play_mode_and_close_time_width">20dp</dimen>
+    <dimen name="icon_play_mode_and_close_time_height">20dp</dimen>
+
+    <!-- 选择关闭时间条目的高度-->
+    <dimen name="close_time_width">20dp</dimen>
+    <dimen name="close_time_height">20dp</dimen>
+
+    <dimen name="close_time_margin_right">15dp</dimen>
+    <dimen name="close_time_text_margin_left">15dp</dimen>
+    <dimen name="close_time_time_text_margin_right">15dp</dimen>
+
+    <!-- 选择关闭时间条目的高度-->
+    <dimen name="select_close_time_item_height">45dp</dimen>
+
+
+    <!-- 播放次数-->
+
+    <!-- 故事专辑显示时常-->
+    <dimen name="icon_show_time_width">13dp</dimen>
+    <dimen name="icon_show_time_height">13dp</dimen>
+
+    <dimen name="addMore_downloadAll_newAblum_icon_width">15dp</dimen>
+    <dimen name="addMore_downloadAll_newAblum_icon_height">17dp</dimen>
+
+    <dimen name="item_common_down_icon_width">25dp</dimen>
+    <dimen name="item_common_down_icon_height">25dp</dimen>
+
+
+    <dimen name="common_left_back_width">45dp</dimen>
+
+
+    <dimen name="TextSizeLarge">36sp</dimen>
+    <dimen name="ItemSpaceLarge">12dp</dimen>
+
+    <dimen name="one_dp">1sp</dimen>
+
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="download_progress_width_height">25dp</dimen>
+    <dimen name="download_progress_stroke_width">3dp</dimen>
+
+    <dimen name="title_media_icon_w_h">50dp</dimen>
+
+    <dimen name="dp_0.5">0.5dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+
+    <dimen name="def_height">50dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_9">9dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_72">72dp</dimen>
+    <dimen name="dp_100">100dp</dimen>
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+
+
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item type="id" name="ksposition"></item>
+    <item type="id" name="ksdata"></item>
+
+    <item type="id" name="ks_comment_data"></item>
+    <item type="id" name="ks_comment_view"></item>
+
+    <item type="id" name="ks_voice_data"></item>
+    <item type="id" name="ks_voice_view"></item>
+
+
+    <item type="id" name="ks_xiaozhishi_list"></item>
+    <item type="id" name="ks_xiaozhishi_storyarticle"></item>
+
+
+    <item type="id" name="ks_xiaozhishi_date"></item>
+
+    <item type="id" name="ks_xiaozhishi_name"></item>
+    <item type="id" name="ks_xiaozhishi_id"></item>
+
+
+
+
+
+
+    <item type="id" name="huanyihuan_floattip"></item>
+
+
+
+
+    <item name="BaseQuickAdapter_viewholder_support" type="id"/>
+    <item name="BaseQuickAdapter_swiping_support" type="id"/>
+    <item name="BaseQuickAdapter_dragging_support" type="id"/>
+    <item name="BaseQuickAdapter_databinding_support" type="id"/>
+</resources>
