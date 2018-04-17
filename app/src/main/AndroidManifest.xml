@@ -48,6 +48,8 @@
         <activity android:name=".activity.NewAblumNameActivity"></activity>
 
         <activity android:name=".activity.MyAblumActivity"></activity>
+        <activity android:name=".activity.SingerAblumActivity"></activity>
+        <activity android:name=".activity.HotAblumContentActivity"></activity>
 
 
 

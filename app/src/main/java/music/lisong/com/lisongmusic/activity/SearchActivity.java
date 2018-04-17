@@ -150,36 +150,6 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
-//
-//        refreshLayout =
-//                (TwinklingRefreshLayout) findViewById(music.lisong.com.lisongmusic.R.id.swipe_refresh_widget);
-//        TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
-//        refreshLayout.setHeaderView(headerView);
-//        refreshLayout.setOverScrollRefreshShow(false);
-//        refreshLayout.setEnableOverScroll(false);
-//        refreshLayout.setEnableLoadmore(false);
-//        refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
-//            @Override
-//            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        SearchActivity.this.onRefresh();
-//                    }
-//                }, 100);
-//            }
-//        });
-//
-//
-//        recyclerView = (RecyclerView) findViewById(music.lisong.com.lisongmusic.R.id.recycler_view);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.setHasFixedSize(true);
-//        // 设置item动画
-//        recyclerView.setAdapter(getAdapter());
-
-
-//        onRefresh();
     }
 
     public void freshkeywd() {
@@ -204,12 +174,22 @@ public class SearchActivity extends AppCompatActivity {
         }
     }
 
-    private TextView buildLabel(String text) {
+    private TextView buildLabel(final String text) {
         TextView textView = new TextView(this);
         textView.setText(text);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         textView.setPadding((int) dpToPx(14), (int) dpToPx(7), (int) dpToPx(14), (int) dpToPx(7));
         textView.setBackgroundResource(R.drawable.label_bg);
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String finalKey = text;
+                Intent it = new Intent(SearchActivity.this, SearchResultContentActivity.class);
+                it.putExtra("data", finalKey);
+                startActivity(it);
+            }
+        });
 
         return textView;
     }

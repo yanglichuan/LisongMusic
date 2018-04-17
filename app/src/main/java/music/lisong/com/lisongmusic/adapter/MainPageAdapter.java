@@ -12,10 +12,12 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import music.lisong.com.lisongmusic.activity.AblumContentActivity;
+import music.lisong.com.lisongmusic.activity.HotAblumContentActivity;
 import music.lisong.com.lisongmusic.bean.Ablum;
+import music.lisong.com.lisongmusic.bean.HotAblum;
 import music.lisong.com.lisongmusic.listener.BaseAdapterOnItemClickListener;
 
-public class MainPageAdapter extends BaseQuickAdapter<Ablum, BaseViewHolder> {
+public class MainPageAdapter extends BaseQuickAdapter<HotAblum, BaseViewHolder> {
 
     private Context context;
     public BaseAdapterOnItemClickListener innerItemListner = new BaseAdapterOnItemClickListener() {
@@ -24,11 +26,11 @@ public class MainPageAdapter extends BaseQuickAdapter<Ablum, BaseViewHolder> {
             ObjectAnimator.ofFloat(view, "scaleY", 1, 1.05f, 1).setDuration(300).start();
             ObjectAnimator.ofFloat(view, "scaleX", 1, 1.05f, 1).setDuration(300).start();
 
-            Ablum o = (Ablum) view.getTag();
+            HotAblum o = (HotAblum) view.getTag();
 
 
-            Intent it = new Intent(context, AblumContentActivity.class);
-            it.putExtra("data", o);
+            Intent it = new Intent(context, HotAblumContentActivity.class);
+            HotAblumContentActivity.staticAB = o;
             context.startActivity(it);
 
         }
@@ -46,7 +48,7 @@ public class MainPageAdapter extends BaseQuickAdapter<Ablum, BaseViewHolder> {
     }
 
     @Override
-    protected void convert(BaseViewHolder baseViewHolder, Ablum storyBean) {
+    protected void convert(BaseViewHolder baseViewHolder, HotAblum storyBean) {
 
         TextView tvname = baseViewHolder.getView(music.lisong.com.lisongmusic.R.id.tv_name);
         TextView tvcount = baseViewHolder.getView(music.lisong.com.lisongmusic.R.id.tv_count);

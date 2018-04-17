@@ -21,13 +21,14 @@ import cn.bmob.v3.listener.FindListener;
 import music.lisong.com.lisongmusic.R;
 import music.lisong.com.lisongmusic.adapter.MainPageAdapter;
 import music.lisong.com.lisongmusic.bean.Ablum;
+import music.lisong.com.lisongmusic.bean.HotAblum;
 import music.lisong.com.lisongmusic.storyaudioservice.MusicServiceUtil;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    List<Ablum> ablums = new ArrayList<>();
+    List<HotAblum> ablums = new ArrayList<>();
     RecyclerView recyclerView;
     TwinklingRefreshLayout refreshLayout;
     private MainPageAdapter adapter;
@@ -80,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                final BmobQuery<Ablum> sss = new BmobQuery<>();
-                sss.findObjects(new FindListener<Ablum>() {
+                final BmobQuery<HotAblum> sss = new BmobQuery<>();
+                sss.findObjects(new FindListener<HotAblum>() {
                     @Override
-                    public void done(List<Ablum> list, BmobException e) {
+                    public void done(List<HotAblum> list, BmobException e) {
                         if (refreshLayout != null) {
                             refreshLayout.onFinishRefresh();
                         }
@@ -123,10 +124,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, HotSongActivity.class));
             }
         });
-        vvv.findViewById(R.id.view_hotablum).setOnClickListener(new View.OnClickListener() {
+        vvv.findViewById(R.id.view_ablum).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, MyAblumActivity.class));
+                startActivity(new Intent(MainActivity.this, SingerAblumActivity.class));
             }
         });
         vvv.findViewById(R.id.view_latestplay).setOnClickListener(new View.OnClickListener() {
@@ -141,6 +142,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MyLikeActivity.class));
             }
         });
+
+        vvv.findViewById(R.id.view_myab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MyAblumActivity.class));
+            }
+        });
+
 
 
         adapter.addHeaderView(vvv);
