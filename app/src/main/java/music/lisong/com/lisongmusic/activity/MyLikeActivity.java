@@ -22,7 +22,7 @@ import music.lisong.com.lisongmusic.adapter.MyLikeAdapter;
 import music.lisong.com.lisongmusic.bean.Likong;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
-public class MyLikeActivity extends AppCompatActivity {
+public class MyLikeActivity extends BaseActivity {
 
     TwinklingRefreshLayout refreshLayout;
     RecyclerView recyclerView;

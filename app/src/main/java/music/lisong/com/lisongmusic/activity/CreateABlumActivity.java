@@ -15,7 +15,7 @@ import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import music.lisong.com.lisongmusic.adapter.LastestStroryAdapter;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
-public class CreateABlumActivity extends AppCompatActivity {
+public class CreateABlumActivity extends BaseActivity {
     TwinklingRefreshLayout refreshLayout;
     RecyclerView recyclerView;
     private LastestStroryAdapter adapter;

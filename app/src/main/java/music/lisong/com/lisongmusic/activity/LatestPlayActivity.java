@@ -19,7 +19,7 @@ import music.lisong.com.lisongmusic.storyaudioservice.PlayingControlHelper;
 import music.lisong.com.lisongmusic.utils.DatabaseHelper;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
-public class LatestPlayActivity extends AppCompatActivity {
+public class LatestPlayActivity extends BaseActivity {
     TwinklingRefreshLayout refreshLayout;
     RecyclerView recyclerView;
     private LastestStroryAdapter adapter;

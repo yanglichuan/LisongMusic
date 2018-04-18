@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
-            android:text="15分钟后停止"
+            android:text="15分钟后停止播放"
             android:textColor="#4a4a4a"
             android:textSize="15dp" />
 
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
-            android:text="30分钟后停止"
+            android:text="30分钟后停止播放"
             android:textColor="#4a4a4a"
             android:textSize="15dp" />
 
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
-            android:text="60分钟后停止"
+            android:text="60分钟后停止播放"
             android:textColor="#4a4a4a"
             android:textSize="15dp" />
 
@@ -139,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
-            android:text="90分钟后停止"
+            android:text="90分钟后停止播放"
             android:textColor="#4a4a4a"
             android:textSize="15dp" />
 
@@ -171,7 +171,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
-            android:text="当前故事后停止"
+            android:text="当前音乐后停止播放"
             android:textColor="#4a4a4a"
             android:textSize="15dp" />
 

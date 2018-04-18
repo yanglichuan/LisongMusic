@@ -25,7 +25,7 @@ import music.lisong.com.lisongmusic.bean.HotAblum;
 import music.lisong.com.lisongmusic.bean.Song;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
-public class HotAblumContentActivity extends AppCompatActivity {
+public class HotAblumContentActivity extends BaseActivity {
     public static Song toAddSong = null;
     TwinklingRefreshLayout refreshLayout;
     RecyclerView recyclerView;
@@ -98,19 +98,13 @@ public class HotAblumContentActivity extends AppCompatActivity {
                 sss.findObjects(new FindListener<Song>() {
                     @Override
                     public void done(List<Song> list, BmobException e) {
-
                         ArrayList<Song> thisSongs  = new ArrayList<>();
                         for (int i=0;i<list.size();i++){
                             Song s = list.get(i);
-
                             if(staticAB.getSongs()!=null && staticAB.getSongs().contains(String.valueOf(s.getObjectId()))){
-
                                 thisSongs.add(s);
                             }
-
                         }
-
-
                         getAdapter().setNewData(thisSongs);
                         if (refreshLayout != null) {
                             refreshLayout.onFinishRefresh();

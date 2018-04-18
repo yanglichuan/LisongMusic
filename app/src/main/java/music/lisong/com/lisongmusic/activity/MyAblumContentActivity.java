@@ -19,6 +19,7 @@ import java.util.List;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 import music.lisong.com.lisongmusic.Ap;
 import music.lisong.com.lisongmusic.R;
 import music.lisong.com.lisongmusic.adapter.MyAblumContentAdapter;
@@ -28,10 +29,11 @@ import music.lisong.com.lisongmusic.bean.MyAblumIncludeSong;
 import music.lisong.com.lisongmusic.bean.Song;
 import music.lisong.com.lisongmusic.storyaudioservice.MusicServiceUtil;
 import music.lisong.com.lisongmusic.storyaudioservice.PlayingControlHelper;
+import music.lisong.com.lisongmusic.utils.ToastUtil;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 //专辑 详细内容
-public class MyAblumContentActivity extends AppCompatActivity {
+public class MyAblumContentActivity extends BaseActivity {
     TwinklingRefreshLayout refreshLayout;
     Ablum ablum;
     Author author;
@@ -39,11 +41,69 @@ public class MyAblumContentActivity extends AppCompatActivity {
     private MyAblumContentAdapter adapter;
     private TextView tv_ablum_name;
 
+
+
+    public static Song selectSong = null;
+    public static boolean toSlect = false;
+
+
+    @Override
+    protected void onDestroy() {
+        toSlect = false;
+        selectSong = null;
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+        if(selectSong!=null){
+            final MyAblumIncludeSong myAblumIncludeSong = new MyAblumIncludeSong(MyAblumActivity.toAddSong);
+            myAblumIncludeSong.setBelongAblum(ablum.getName());
+
+            BmobQuery<MyAblumIncludeSong> songBmobQuery = new BmobQuery<>();
+            songBmobQuery.addWhereEqualTo("belongAblum", ablum.getName());
+            songBmobQuery.addWhereEqualTo("mp3url", MyAblumActivity.toAddSong.getMp3url());
+            songBmobQuery.findObjects(new FindListener<MyAblumIncludeSong>() {
+                @Override
+                public void done(List<MyAblumIncludeSong> list, BmobException e) {
+
+                    if (list != null && list.size() > 0) {
+                        ToastUtil.showMessage("已经存在");
+                    } else {
+                        myAblumIncludeSong.save(new SaveListener<String>() {
+                            @Override
+                            public void done(String s, BmobException e) {
+                                if (e == null) {
+                                    ToastUtil.showMessage("添加成功");
+                                    MyAblumActivity.toAddSong = null;
+                                }
+                            }
+                        });
+                    }
+
+
+
+                    onRefresh();
+                }
+            });
+        }else {
+            onRefresh();
+        }
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ablum = (Ablum) getIntent().getSerializableExtra("data");
         author = (Author) getIntent().getSerializableExtra("author");
+
+        toSlect =false;
+        selectSong = null;
 
 
         setContentView(R.layout.ablum_content);
@@ -97,7 +157,7 @@ public class MyAblumContentActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.view_playall).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.view_playall1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -120,7 +180,37 @@ public class MyAblumContentActivity extends AppCompatActivity {
         });
 
 
-        onRefresh();
+        findViewById(R.id.view_playall2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                ArrayList<Song> likongs = new ArrayList<>();
+                for (int m = 0; m < adapter.getData().size(); m++) {
+                    MyAblumIncludeSong ll = adapter.getData().get(m);
+                    likongs.add(ll.toSong());
+                }
+                if(likongs==null || likongs.size()==0){
+                    return;
+                }
+
+                //开始播放歌曲
+                PlayingControlHelper.setPlayList(likongs, 0);
+                MusicServiceUtil.play(Ap.application,
+                        PlayingControlHelper.getPlayingStory().getMp3url(), 1);
+
+            }
+        });
+
+
+        findViewById(R.id.view_selectsong).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toSlect = true;
+                startActivity(new Intent(MyAblumContentActivity.this, HotSongActivity.class));
+            }
+        });
+
     }
 
     public void onRefresh() {

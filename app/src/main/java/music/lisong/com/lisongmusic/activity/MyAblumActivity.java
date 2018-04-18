@@ -24,7 +24,7 @@ import music.lisong.com.lisongmusic.bean.MyAblum;
 import music.lisong.com.lisongmusic.bean.Song;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
-public class MyAblumActivity extends AppCompatActivity {
+public class MyAblumActivity extends BaseActivity {
     public static Song toAddSong = null;
     TwinklingRefreshLayout refreshLayout;
     RecyclerView recyclerView;

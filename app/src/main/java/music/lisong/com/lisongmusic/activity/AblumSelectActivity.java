@@ -15,7 +15,7 @@ import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import music.lisong.com.lisongmusic.adapter.LastestStroryAdapter;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
-public class AblumSelectActivity extends AppCompatActivity {
+public class AblumSelectActivity extends BaseActivity {
     TwinklingRefreshLayout refreshLayout;
     RecyclerView recyclerView;
     private LastestStroryAdapter adapter;

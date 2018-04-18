@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import music.lisong.com.lisongmusic.activity.AblumContentActivity;
 import music.lisong.com.lisongmusic.activity.HotAblumContentActivity;
 import music.lisong.com.lisongmusic.bean.Ablum;
 import music.lisong.com.lisongmusic.bean.HotAblum;
@@ -25,11 +26,10 @@ public class SingerAblumAdapter extends BaseQuickAdapter<Ablum, BaseViewHolder> 
             ObjectAnimator.ofFloat(view, "scaleY", 1, 1.05f, 1).setDuration(300).start();
             ObjectAnimator.ofFloat(view, "scaleX", 1, 1.05f, 1).setDuration(300).start();
 
-            HotAblum o = (HotAblum) view.getTag();
+            Ablum o = (Ablum) view.getTag();
 
 
-            Intent it = new Intent(context, HotAblumContentActivity.class);
-            HotAblumContentActivity.staticAB = o;
+            Intent it = new Intent(context, AblumContentActivity.class);
             context.startActivity(it);
 
         }

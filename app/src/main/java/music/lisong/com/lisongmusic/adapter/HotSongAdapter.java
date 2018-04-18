@@ -1,6 +1,7 @@
 package music.lisong.com.lisongmusic.adapter;
 
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +18,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.ArrayList;
 
 import music.lisong.com.lisongmusic.Ap;
+import music.lisong.com.lisongmusic.activity.AblumContentActivity;
+import music.lisong.com.lisongmusic.activity.MyAblumContentActivity;
 import music.lisong.com.lisongmusic.activity.PlayingActivity;
 import music.lisong.com.lisongmusic.bean.Song;
 import music.lisong.com.lisongmusic.listener.BaseAdapterOnItemClickListener;
@@ -50,6 +53,20 @@ public class HotSongAdapter extends BaseQuickAdapter<Song, BaseViewHolder> {
             ObjectAnimator.ofFloat(view, "scaleY", 1, 1.05f, 1).setDuration(300).start();
             ObjectAnimator.ofFloat(view, "scaleX", 1, 1.05f, 1).setDuration(300).start();
 
+            if(MyAblumContentActivity.toSlect){
+                Song ss = (Song) view.getTag();
+                MyAblumContentActivity.selectSong = ss;
+
+                Activity activity = (Activity) context;
+                activity.finish();
+
+                return;
+            }
+
+
+
+
+
             ArrayList<Song> likongs = new ArrayList<>();
             for (int m = 0; m < getData().size(); m++) {
                 Song ll = getData().get(m);
@@ -80,23 +97,25 @@ public class HotSongAdapter extends BaseQuickAdapter<Song, BaseViewHolder> {
     }
 
     @Override
-    protected void convert(BaseViewHolder baseViewHolder, Song storyBean) {
+    protected void convert(BaseViewHolder baseViewHolder, Song song) {
 
         TextView tvname = baseViewHolder.getView(music.lisong.com.lisongmusic.R.id.tv_name);
         TextView tvcount = baseViewHolder.getView(music.lisong.com.lisongmusic.R.id.tv_count);
         SimpleDraweeView sdv = baseViewHolder.getView(music.lisong.com.lisongmusic.R.id.sdv_img);
 
 
-        if (storyBean == null) {
+        if (song == null) {
             return;
         }
 
-        tvname.setText(storyBean.getName());
-        tvcount.setText(storyBean.getAuthor());
-        if (TextUtils.isEmpty(storyBean.getCoverImg())) {
+        baseViewHolder.getConvertView().setTag(song);
+
+        tvname.setText(song.getName());
+        tvcount.setText(song.getAuthor());
+        if (TextUtils.isEmpty(song.getCoverImg())) {
             sdv.setImageURI(Uri.parse("http://n.sinaimg.cn/ent/transform/20170920/M3G7-fykymue7408829.jpg"));
         } else {
-            sdv.setImageURI(storyBean.getCoverImg());
+            sdv.setImageURI(song.getCoverImg());
         }
 
 

@@ -49,7 +49,7 @@ import music.lisong.com.lisongmusic.utils.SpUtils;
 import music.lisong.com.lisongmusic.utils.ToastUtil;
 import music.lisong.com.lisongmusic.view.MySeekbar;
 
-public class PlayingActivity extends AppCompatActivity implements Callback {
+public class PlayingActivity extends BaseActivity implements Callback {
 
     MySeekbar seekbar;
 
@@ -144,12 +144,9 @@ public class PlayingActivity extends AppCompatActivity implements Callback {
     private void addtoAb() {
         Song s = PlayingControlHelper.getPlayingStory();
         if (s != null) {
-
             MyAblumActivity.toAddSong = s;
             startActivity(new Intent(getApplicationContext(), MyAblumActivity.class));
         }
-
-
     }
 
     private void showList() {
@@ -278,16 +275,12 @@ public class PlayingActivity extends AppCompatActivity implements Callback {
                 }
                 break;
         }
-
-
         View v1 = dialog.findViewById(R.id.view1);
         View v2 = dialog.findViewById(R.id.view2);
         View v3 = dialog.findViewById(R.id.view3);
         View v4 = dialog.findViewById(R.id.view4);
         View v5 = dialog.findViewById(R.id.view5);
         View v6 = dialog.findViewById(R.id.view6);
-
-
         View.OnClickListener xx = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -336,12 +329,9 @@ public class PlayingActivity extends AppCompatActivity implements Callback {
                         SpUtils.putString("timechoice", "-1");
                         dialog.dismiss();
                         break;
-
-
                 }
             }
         };
-
 
         v1.setOnClickListener(xx);
         v2.setOnClickListener(xx);
@@ -349,7 +339,6 @@ public class PlayingActivity extends AppCompatActivity implements Callback {
         v4.setOnClickListener(xx);
         v5.setOnClickListener(xx);
         v6.setOnClickListener(xx);
-
 
         dialog.show();
     }
@@ -359,9 +348,7 @@ public class PlayingActivity extends AppCompatActivity implements Callback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing);
 
-
         MusicServiceUtil.addPlayingCallback(this);
-
 
         view_tolike = (ImageView) findViewById(R.id.view_tolike);
         view_addablum = (ImageView) findViewById(R.id.view_addablum);
@@ -460,6 +447,13 @@ public class PlayingActivity extends AppCompatActivity implements Callback {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        freshOnlyControlButtonState();
     }
 
     private void updateSong() {

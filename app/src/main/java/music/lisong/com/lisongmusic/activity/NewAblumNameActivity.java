@@ -22,7 +22,7 @@ import music.lisong.com.lisongmusic.adapter.SearchStringAdapter;
 import music.lisong.com.lisongmusic.bean.MyAblum;
 import music.lisong.com.lisongmusic.utils.ToastUtil;
 
-public class NewAblumNameActivity extends AppCompatActivity {
+public class NewAblumNameActivity extends BaseActivity {
 
     public static final String KY = "searchwords";
     ArrayList<String> keywords = new ArrayList<>();

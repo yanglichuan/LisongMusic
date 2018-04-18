@@ -29,7 +29,7 @@ import music.lisong.com.lisongmusic.storyaudioservice.PlayingControlHelper;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 //专辑 详细内容
-public class AblumContentActivity extends AppCompatActivity {
+public class AblumContentActivity extends BaseActivity {
     TwinklingRefreshLayout refreshLayout;
     Ablum ablum;
     Author author;
@@ -44,7 +44,7 @@ public class AblumContentActivity extends AppCompatActivity {
         author = (Author) getIntent().getSerializableExtra("author");
 
 
-        setContentView(music.lisong.com.lisongmusic.R.layout.ablum_content);
+        setContentView(R.layout.activity_latest);
         tv_ablum_name = (TextView) findViewById(R.id.tv_ablum_name);
         if (ablum != null) {
             tv_ablum_name.setText(ablum.getName());

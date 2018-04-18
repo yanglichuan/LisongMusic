@@ -25,7 +25,7 @@ import music.lisong.com.lisongmusic.bean.HotAblum;
 import music.lisong.com.lisongmusic.storyaudioservice.MusicServiceUtil;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     List<HotAblum> ablums = new ArrayList<>();

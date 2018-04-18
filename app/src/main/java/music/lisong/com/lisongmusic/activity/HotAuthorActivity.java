@@ -22,7 +22,7 @@ import music.lisong.com.lisongmusic.adapter.HotAuthorAdapter;
 import music.lisong.com.lisongmusic.bean.Author;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
-public class HotAuthorActivity extends AppCompatActivity {
+public class HotAuthorActivity extends BaseActivity {
     TwinklingRefreshLayout refreshLayout;
     RecyclerView recyclerView;
     private HotAuthorAdapter adapter;

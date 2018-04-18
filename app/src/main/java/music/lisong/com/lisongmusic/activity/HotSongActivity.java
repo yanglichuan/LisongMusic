@@ -23,7 +23,7 @@ import music.lisong.com.lisongmusic.bean.Song;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 //热门歌曲
-public class HotSongActivity extends AppCompatActivity {
+public class HotSongActivity extends BaseActivity {
 
     TwinklingRefreshLayout refreshLayout;
     RecyclerView recyclerView;

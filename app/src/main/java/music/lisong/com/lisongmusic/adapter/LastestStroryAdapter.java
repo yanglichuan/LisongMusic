@@ -50,7 +50,7 @@ public class LastestStroryAdapter extends BaseQuickAdapter<Song, BaseViewHolder>
 
             final AlertDialog.Builder normalDialog =
                     new AlertDialog.Builder(context);
-            normalDialog.setTitle("我喜欢的");
+            normalDialog.setTitle("最近听过");
             normalDialog.setMessage("确定要删除该歌曲吗?");
             normalDialog.setPositiveButton("确定",
                     new DialogInterface.OnClickListener() {

@@ -27,7 +27,7 @@ import music.lisong.com.lisongmusic.storyaudioservice.PlayingControlHelper;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 //专辑 详细内容
-public class SearchResultContentActivity extends AppCompatActivity {
+public class SearchResultContentActivity extends BaseActivity {
     TwinklingRefreshLayout refreshLayout;
 
     String keyword;
