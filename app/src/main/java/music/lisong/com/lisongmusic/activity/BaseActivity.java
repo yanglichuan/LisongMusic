@@ -21,17 +21,8 @@ public class BaseActivity extends AppCompatActivity implements Callback {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         MusicServiceUtil.addPlayingCallback(this);
-
-
-
-
-
-
-
     }
-
 
     @Override
     public void onAttachedToWindow() {
@@ -47,7 +38,6 @@ public class BaseActivity extends AppCompatActivity implements Callback {
                 }
             });
         }
-
     }
 
     protected void freshPlayingIcon() {
@@ -85,12 +75,7 @@ public class BaseActivity extends AppCompatActivity implements Callback {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-
         MusicServiceUtil.removePlayingCallBack(this);
-
-
-
     }
 
     @Override

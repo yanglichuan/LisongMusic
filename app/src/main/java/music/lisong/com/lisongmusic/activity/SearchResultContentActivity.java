@@ -41,7 +41,7 @@ public class SearchResultContentActivity extends BaseActivity {
         keyword = (String) getIntent().getStringExtra("data");
 
 
-        setContentView(R.layout.ablum_content);
+        setContentView(R.layout.search_result_activity);
         tv_ablum_name = (TextView) findViewById(R.id.tv_ablum_name);
         if (keyword != null) {
             tv_ablum_name.setText(keyword);
