@@ -49,7 +49,7 @@ import music.lisong.com.lisongmusic.utils.SpUtils;
 import music.lisong.com.lisongmusic.utils.ToastUtil;
 import music.lisong.com.lisongmusic.view.MySeekbar;
 
-public class PlayingActivity extends BaseActivity implements Callback {
+public class PlayingActivity extends BaseActivity implements Callback, TickUtils.TimeTickCallBack {
 
     MySeekbar seekbar;
 
@@ -244,30 +244,35 @@ public class PlayingActivity extends BaseActivity implements Callback {
                     tttt.setSelect(false);
                 }
                 itm1.setSelect(true);
+
                 break;
             case "2":
                 for (TimeItem tttt : timeItems) {
                     tttt.setSelect(false);
                 }
                 itm2.setSelect(true);
+
                 break;
             case "3":
                 for (TimeItem tttt : timeItems) {
                     tttt.setSelect(false);
                 }
                 itm3.setSelect(true);
+
                 break;
             case "4":
                 for (TimeItem tttt : timeItems) {
                     tttt.setSelect(false);
                 }
                 itm4.setSelect(true);
+
                 break;
             case "5":
                 for (TimeItem tttt : timeItems) {
                     tttt.setSelect(false);
                 }
                 itm5.setSelect(true);
+
                 break;
             default:
                 for (TimeItem tttt : timeItems) {
@@ -290,9 +295,9 @@ public class PlayingActivity extends BaseActivity implements Callback {
                             tttt.setSelect(false);
                         }
                         itm1.setSelect(true);
-
                         SpUtils.putString("timechoice", "1");
-
+                        TickUtils.setCountdownTimer(TickUtils.CLOSE_MODE_15);
+                        dialog.dismiss();
                         break;
                     case R.id.view2:
                         for (TimeItem tttt : timeItems) {
@@ -300,6 +305,8 @@ public class PlayingActivity extends BaseActivity implements Callback {
                         }
                         itm2.setSelect(true);
                         SpUtils.putString("timechoice", "2");
+                        TickUtils.setCountdownTimer(TickUtils.CLOSE_MODE_15);
+                        dialog.dismiss();
                         break;
                     case R.id.view3:
                         for (TimeItem tttt : timeItems) {
@@ -307,6 +314,8 @@ public class PlayingActivity extends BaseActivity implements Callback {
                         }
                         itm3.setSelect(true);
                         SpUtils.putString("timechoice", "3");
+                        TickUtils.setCountdownTimer(TickUtils.CLOSE_MODE_15);
+                        dialog.dismiss();
                         break;
                     case R.id.view4:
                         for (TimeItem tttt : timeItems) {
@@ -314,6 +323,8 @@ public class PlayingActivity extends BaseActivity implements Callback {
                         }
                         itm4.setSelect(true);
                         SpUtils.putString("timechoice", "4");
+                        TickUtils.setCountdownTimer(TickUtils.CLOSE_MODE_15);
+                        dialog.dismiss();
                         break;
                     case R.id.view5:
                         for (TimeItem tttt : timeItems) {
@@ -321,12 +332,15 @@ public class PlayingActivity extends BaseActivity implements Callback {
                         }
                         itm5.setSelect(true);
                         SpUtils.putString("timechoice", "5");
+                        TickUtils.setCountdownTimer(TickUtils.CLOSE_MODE_OVER_NOW);
+                        dialog.dismiss();
                         break;
                     case R.id.view6:
                         for (TimeItem tttt : timeItems) {
                             tttt.setSelect(false);
                         }
                         SpUtils.putString("timechoice", "-1");
+                        TickUtils.setCountdownTimer(TickUtils.CLOSE_MODE_NO_OPEN);
                         dialog.dismiss();
                         break;
                 }
@@ -343,12 +357,19 @@ public class PlayingActivity extends BaseActivity implements Callback {
         dialog.show();
     }
 
+
+    private TextView tv_timeleft;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing);
 
         MusicServiceUtil.addPlayingCallback(this);
+
+        TickUtils.addTickCallBack(this);
+
+        tv_timeleft = (TextView) findViewById(R.id.tv_timeleft);
 
         view_tolike = (ImageView) findViewById(R.id.view_tolike);
         view_addablum = (ImageView) findViewById(R.id.view_addablum);
@@ -562,11 +583,16 @@ public class PlayingActivity extends BaseActivity implements Callback {
 
     @Override
     public void onProgress(String playUrl, int voiceId, long progress, long duration) {
-
-
         freshProgressAndTime(progress, duration);
 
 
+        if (tv_timeleft != null && TickUtils.getCurrent_close_mode() == TickUtils.CLOSE_MODE_OVER_NOW) {
+            Integer restSeconds = Long.valueOf((duration*1000 - progress) / 1000).intValue();
+
+            Integer[] miniteSecond = new Integer[2];
+            String timeExchangeV2 = CommonUtils.timeExchangeV2(restSeconds, miniteSecond);
+            tv_timeleft.setText(timeExchangeV2);
+        }
     }
 
     @Override
@@ -612,6 +638,22 @@ public class PlayingActivity extends BaseActivity implements Callback {
     }
 
 
+    @Override
+    public void onTimeTick(long millisUntilFinished) {
+        if (tv_timeleft != null) {
+            Integer restSeconds = Long.valueOf(millisUntilFinished / 1000).intValue();
+
+            Integer[] miniteSecond = new Integer[2];
+            String timeExchangeV2 = CommonUtils.timeExchangeV2(restSeconds, miniteSecond);
+            tv_timeleft.setText(timeExchangeV2);
+        }
+    }
+
+    @Override
+    public void onTimeFinish() {
+        TickUtils.setCountdownTimer(TickUtils.CLOSE_MODE_NO_OPEN);
+        tv_timeleft.setText("");
+    }
 }
 
 

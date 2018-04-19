@@ -28,7 +28,9 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
+import music.lisong.com.lisongmusic.activity.TickUtils;
 import music.lisong.com.lisongmusic.utils.LogUtil;
+import music.lisong.com.lisongmusic.utils.SpUtils;
 
 
 public class MusicService extends Service implements Callback {
@@ -269,6 +271,17 @@ public class MusicService extends Service implements Callback {
                 callback.onCompletion(currentPlayUrl, currentVoiceId, nextPlayUrl);
             }
         }
+
+
+        if(TickUtils.getCurrent_close_mode() == TickUtils.CLOSE_MODE_OVER_NOW){
+            pause();
+
+            TickUtils.setCountdownTimer(TickUtils.CLOSE_MODE_NO_OPEN);
+            SpUtils.putString("timechoice", "-1");
+        }
+
+
+
     }
 
     @Override

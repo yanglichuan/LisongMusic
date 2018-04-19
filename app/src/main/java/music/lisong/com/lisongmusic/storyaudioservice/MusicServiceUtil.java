@@ -191,7 +191,6 @@ public class MusicServiceUtil {
                     musicService.play(source,voiceId);
                 }
             }
-
             @Override
             public void onServiceDisconnected(ComponentName name) {
 
@@ -209,7 +208,6 @@ public class MusicServiceUtil {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             bBindingOk = true;
-
             if (cacheCallbacks.size() > 0 && musicService != null) {
                 musicService.addCallback(cacheCallbacks);
                 cacheCallbacks.clear();
@@ -309,6 +307,4 @@ public class MusicServiceUtil {
             musicService.seedTo(msProgress);
         }
     }
-
-
 }
