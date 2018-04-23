@@ -26,49 +26,25 @@ import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 public class MyAblumActivity extends BaseActivity {
     public static Song toAddSong = null;
-    TwinklingRefreshLayout refreshLayout;
-    RecyclerView recyclerView;
     private MyAblumAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
-        setContentView(R.layout.activity_myalbum_andnew);
+    @Override
+    protected int getLayoutInt() {
+        return R.layout.activity_myalbum_andnew;
+    }
 
-        refreshLayout =
-                (TwinklingRefreshLayout) findViewById(R.id.swipe_refresh_widget);
-        TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
-        refreshLayout.setHeaderView(headerView);
-        refreshLayout.setOverScrollRefreshShow(false);
-        refreshLayout.setEnableOverScroll(false);
-        refreshLayout.setEnableLoadmore(false);
-        refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
-            @Override
-            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        MyAblumActivity.this.onRefresh();
-                    }
-                }, 100);
-            }
-        });
-
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        // 设置item动画
-        recyclerView.setAdapter(getAdapter());
-
-
+    @Override
+    protected void initView() {
+        super.initView();
         TextView tv_ablum_name = (TextView) findViewById(R.id.tv_ablum_name);
         if (tv_ablum_name != null) {
             tv_ablum_name.setText("我的歌单");
         }
-
 
         findViewById(R.id.view_back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,13 +53,10 @@ public class MyAblumActivity extends BaseActivity {
             }
         });
 
-
         findViewById(R.id.view_new).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 startActivity(new Intent(getApplicationContext(), NewAblumNameActivity.class));
-
             }
         });
     }
@@ -114,7 +87,7 @@ public class MyAblumActivity extends BaseActivity {
         }, 100);
     }
 
-    private BaseQuickAdapter getAdapter() {
+    protected BaseQuickAdapter getAdapter() {
         if (adapter == null) {
             adapter = new MyAblumAdapter(this);
 //            adapter.setOnLoadMoreListener(this);

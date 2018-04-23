@@ -106,5 +106,4 @@ public class TickUtils {
         }
         tickCallBacks.remove(tb);
     }
-
 }

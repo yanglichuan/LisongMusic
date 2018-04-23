@@ -34,18 +34,13 @@ import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 //专辑 详细内容
 public class MyAblumContentActivity extends BaseActivity {
-    TwinklingRefreshLayout refreshLayout;
     Ablum ablum;
     Author author;
-    RecyclerView recyclerView;
     private MyAblumContentAdapter adapter;
     private TextView tv_ablum_name;
 
-
-
     public static Song selectSong = null;
     public static boolean toSlect = false;
-
 
     @Override
     protected void onDestroy() {
@@ -95,18 +90,10 @@ public class MyAblumContentActivity extends BaseActivity {
     }
 
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ablum = (Ablum) getIntent().getSerializableExtra("data");
-        author = (Author) getIntent().getSerializableExtra("author");
+    protected void initView() {
+        super.initView();
 
-        toSlect =false;
-        selectSong = null;
-
-
-        setContentView(R.layout.ablum_content);
         tv_ablum_name = (TextView) findViewById(R.id.tv_ablum_name);
         if (ablum != null) {
             tv_ablum_name.setText(ablum.getName());
@@ -114,33 +101,6 @@ public class MyAblumContentActivity extends BaseActivity {
         if (author != null) {
             tv_ablum_name.setText(author.getName());
         }
-
-        refreshLayout =
-                (TwinklingRefreshLayout) findViewById(R.id.swipe_refresh_widget);
-        TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
-        refreshLayout.setHeaderView(headerView);
-        refreshLayout.setOverScrollRefreshShow(false);
-        refreshLayout.setEnableOverScroll(false);
-        refreshLayout.setEnableLoadmore(false);
-        refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
-            @Override
-            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        MyAblumContentActivity.this.onRefresh();
-                    }
-                }, 100);
-            }
-        });
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        // 设置item动画
-        recyclerView.setAdapter(getAdapter());
-
 
         findViewById(R.id.view_search).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,7 +170,23 @@ public class MyAblumContentActivity extends BaseActivity {
                 startActivity(new Intent(MyAblumContentActivity.this, HotSongActivity.class));
             }
         });
+    }
 
+
+    @Override
+    protected int getLayoutInt() {
+        return R.layout.ablum_content;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        ablum = (Ablum) getIntent().getSerializableExtra("data");
+        author = (Author) getIntent().getSerializableExtra("author");
+
+        toSlect =false;
+        selectSong = null;
+        super.onCreate(savedInstanceState);
     }
 
     public void onRefresh() {
@@ -236,7 +212,7 @@ public class MyAblumContentActivity extends BaseActivity {
 
     }
 
-    private BaseQuickAdapter getAdapter() {
+    protected BaseQuickAdapter getAdapter() {
         if (adapter == null) {
             adapter = new MyAblumContentAdapter(this);
             adapter.setAblum(ablum);

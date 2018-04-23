@@ -8,21 +8,87 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
+import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
 import music.lisong.com.lisongmusic.R;
 import music.lisong.com.lisongmusic.storyaudioservice.Callback;
 import music.lisong.com.lisongmusic.storyaudioservice.MusicServiceUtil;
+import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 
-public class BaseActivity extends AppCompatActivity implements Callback {
+public abstract class BaseActivity extends AppCompatActivity implements Callback {
     protected ImageView mAudioPlayIcon;
+
+    TwinklingRefreshLayout refreshLayout;
+    protected RecyclerView recyclerView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MusicServiceUtil.addPlayingCallback(this);
+
+        setContentView(getLayoutInt());
+
+
+        refreshLayout =
+                (TwinklingRefreshLayout) findViewById(music.lisong.com.lisongmusic.R.id.swipe_refresh_widget);
+        if(refreshLayout!=null){
+            TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
+            refreshLayout.setHeaderView(headerView);
+            refreshLayout.setOverScrollRefreshShow(false);
+            refreshLayout.setEnableOverScroll(false);
+            refreshLayout.setEnableLoadmore(false);
+            refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
+                @Override
+                public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            BaseActivity.this.onRefresh();
+                        }
+                    }, 100);
+                }
+            });
+
+            recyclerView = (RecyclerView) findViewById(music.lisong.com.lisongmusic.R.id.recycler_view);
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+            recyclerView.setLayoutManager(layoutManager);
+            recyclerView.setHasFixedSize(true);
+            // 设置item动画
+            recyclerView.setAdapter(getAdapter());
+        }
+
+        initView();
     }
+
+
+    protected int getLayoutInt(){
+        return -1;
+    }
+
+
+
+    protected void initView(){
+
+    }
+
+
+
+    protected void onRefresh(){
+
+    }
+
+
+    protected abstract RecyclerView.Adapter getAdapter();
+
+
+
 
     @Override
     public void onAttachedToWindow() {

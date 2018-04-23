@@ -29,40 +29,22 @@ public class MainActivity extends BaseActivity {
 
 
     List<HotAblum> ablums = new ArrayList<>();
-    RecyclerView recyclerView;
-    TwinklingRefreshLayout refreshLayout;
     private MainPageAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(music.lisong.com.lisongmusic.R.layout.activity_main);
+    }
 
+    @Override
+    protected int getLayoutInt() {
+        return music.lisong.com.lisongmusic.R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView() {
+        super.initView();
         ablums.clear();
-
-
-        refreshLayout =
-                (TwinklingRefreshLayout) findViewById(music.lisong.com.lisongmusic.R.id.swipe_refresh_widget);
-        TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
-        refreshLayout.setHeaderView(headerView);
-        refreshLayout.setOverScrollRefreshShow(false);
-        refreshLayout.setEnableOverScroll(false);
-        refreshLayout.setEnableLoadmore(false);
-        refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
-            @Override
-            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
-                MainActivity.this.onRefresh();
-            }
-        });
-
-
-        recyclerView = (RecyclerView) findViewById(music.lisong.com.lisongmusic.R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        // 设置item动画
-        recyclerView.setAdapter(getAdapter());
-
 
         findViewById(music.lisong.com.lisongmusic.R.id.view_search).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +82,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    private BaseQuickAdapter getAdapter() {
+    protected BaseQuickAdapter getAdapter() {
         if (adapter == null) {
             adapter = new MainPageAdapter(this);
 //            adapter.setOnLoadMoreListener(this);

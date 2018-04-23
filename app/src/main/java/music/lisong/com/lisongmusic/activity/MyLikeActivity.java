@@ -24,47 +24,23 @@ import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 public class MyLikeActivity extends BaseActivity {
 
-    TwinklingRefreshLayout refreshLayout;
-    RecyclerView recyclerView;
     private MyLikeAdapter adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ablum_mylike);
+    }
 
-        refreshLayout =
-                (TwinklingRefreshLayout) findViewById(music.lisong.com.lisongmusic.R.id.swipe_refresh_widget);
-        TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
-        refreshLayout.setHeaderView(headerView);
-        refreshLayout.setOverScrollRefreshShow(false);
-        refreshLayout.setEnableOverScroll(false);
-        refreshLayout.setEnableLoadmore(false);
-        refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
-            @Override
-            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        MyLikeActivity.this.onRefresh();
-                    }
-                }, 100);
-            }
-        });
+    @Override
+    protected int getLayoutInt() {
+        return R.layout.ablum_mylike;
+    }
 
-
-        recyclerView = (RecyclerView) findViewById(music.lisong.com.lisongmusic.R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        // 设置item动画
-        recyclerView.setAdapter(getAdapter());
-
-
+    @Override
+    protected void initView() {
+        super.initView();
         TextView et_title = (TextView) findViewById(R.id.tv_ablum_name);
         et_title.setText("我喜欢的");
-
 
         findViewById(R.id.view_back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +48,6 @@ public class MyLikeActivity extends BaseActivity {
                 finish();
             }
         });
-
-//        addHeader();
 
         onRefresh();
     }
@@ -92,7 +66,7 @@ public class MyLikeActivity extends BaseActivity {
         });
     }
 
-    private BaseQuickAdapter getAdapter() {
+    protected BaseQuickAdapter getAdapter() {
         if (adapter == null) {
             adapter = new MyLikeAdapter(this);
 //            adapter.setOnLoadMoreListener(this);

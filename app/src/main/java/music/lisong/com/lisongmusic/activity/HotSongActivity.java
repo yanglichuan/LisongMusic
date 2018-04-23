@@ -25,41 +25,21 @@ import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 //热门歌曲
 public class HotSongActivity extends BaseActivity {
 
-    TwinklingRefreshLayout refreshLayout;
-    RecyclerView recyclerView;
     private HotSongAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hotablum);
+    }
 
-        refreshLayout = (TwinklingRefreshLayout) findViewById(R.id.swipe_refresh_widget);
-        TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
-        refreshLayout.setHeaderView(headerView);
-        refreshLayout.setOverScrollRefreshShow(false);
-        refreshLayout.setEnableOverScroll(false);
-        refreshLayout.setEnableLoadmore(false);
-        refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
-            @Override
-            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        HotSongActivity.this.onRefresh();
-                    }
-                }, 100);
-            }
-        });
+    @Override
+    protected int getLayoutInt() {
+        return R.layout.activity_hotablum;
+    }
 
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        // 设置item动画
-        recyclerView.setAdapter(getAdapter());
-
+    @Override
+    protected void initView() {
+        super.initView();
 
         View view_back = findViewById(R.id.view_back);
         if (view_back != null) {
@@ -102,7 +82,7 @@ public class HotSongActivity extends BaseActivity {
         }, 100);
     }
 
-    private BaseQuickAdapter getAdapter() {
+    protected BaseQuickAdapter getAdapter() {
         if (adapter == null) {
             adapter = new HotSongAdapter(this);
 //            adapter.setOnLoadMoreListener(this);

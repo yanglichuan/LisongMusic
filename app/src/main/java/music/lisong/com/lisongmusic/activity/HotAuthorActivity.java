@@ -23,43 +23,20 @@ import music.lisong.com.lisongmusic.bean.Author;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 public class HotAuthorActivity extends BaseActivity {
-    TwinklingRefreshLayout refreshLayout;
-    RecyclerView recyclerView;
     private HotAuthorAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hotablum);
+    }
 
-        refreshLayout =
-                (TwinklingRefreshLayout) findViewById(music.lisong.com.lisongmusic.R.id.swipe_refresh_widget);
-        TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
-        refreshLayout.setHeaderView(headerView);
-        refreshLayout.setOverScrollRefreshShow(false);
-        refreshLayout.setEnableOverScroll(false);
-        refreshLayout.setEnableLoadmore(false);
-        refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
-            @Override
-            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        HotAuthorActivity.this.onRefresh();
-                    }
-                }, 100);
-            }
-        });
+    @Override
+    protected int getLayoutInt() {
+        return  R.layout.activity_hotablum;
+    }
 
-
-        recyclerView = (RecyclerView) findViewById(music.lisong.com.lisongmusic.R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        // 设置item动画
-        recyclerView.setAdapter(getAdapter());
-
-
+    @Override
+    protected void initView() {
+        super.initView();
         View view_back = findViewById(R.id.view_back);
         if (view_back != null) {
             view_back.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +77,7 @@ public class HotAuthorActivity extends BaseActivity {
         }, 100);
     }
 
-    private BaseQuickAdapter getAdapter() {
+    protected BaseQuickAdapter getAdapter() {
         if (adapter == null) {
             adapter = new HotAuthorAdapter(this);
 //            adapter.setOnLoadMoreListener(this);

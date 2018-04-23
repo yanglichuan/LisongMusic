@@ -27,46 +27,21 @@ import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 public class HotAblumContentActivity extends BaseActivity {
     public static Song toAddSong = null;
-    TwinklingRefreshLayout refreshLayout;
-    RecyclerView recyclerView;
     private HotSongAdapter adapter;
-
-
-
     public static HotAblum staticAB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
-        setContentView(R.layout.ablum_singerab);
+    @Override
+    protected int getLayoutInt() {
+        return R.layout.ablum_singerab;
+    }
 
-        refreshLayout =
-                (TwinklingRefreshLayout) findViewById(R.id.swipe_refresh_widget);
-        TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
-        refreshLayout.setHeaderView(headerView);
-        refreshLayout.setOverScrollRefreshShow(false);
-        refreshLayout.setEnableOverScroll(false);
-        refreshLayout.setEnableLoadmore(false);
-        refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
-            @Override
-            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        HotAblumContentActivity.this.onRefresh();
-                    }
-                }, 100);
-            }
-        });
-
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        // 设置item动画
-        recyclerView.setAdapter(getAdapter());
-
+    @Override
+    protected void initView() {
+        super.initView();
 
         TextView tv_ablum_name = (TextView) findViewById(R.id.tv_ablum_name);
         if (tv_ablum_name != null) {
@@ -116,7 +91,7 @@ public class HotAblumContentActivity extends BaseActivity {
         }, 100);
     }
 
-    private BaseQuickAdapter getAdapter() {
+    protected BaseQuickAdapter getAdapter() {
         if (adapter == null) {
             adapter = new HotSongAdapter(this);
 //            adapter.setOnLoadMoreListener(this);

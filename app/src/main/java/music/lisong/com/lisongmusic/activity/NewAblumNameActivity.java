@@ -26,17 +26,14 @@ public class NewAblumNameActivity extends BaseActivity {
 
     public static final String KY = "searchwords";
     ArrayList<String> keywords = new ArrayList<>();
-    TwinklingRefreshLayout refreshLayout;
-    RecyclerView recyclerView;
     private EditText et_key;
     private Button bt_search;
     private SearchStringAdapter adapter;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_newablumname);
 
+    @Override
+    protected void initView() {
+        super.initView();
 
         findViewById(R.id.view_back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +79,21 @@ public class NewAblumNameActivity extends BaseActivity {
                 });
             }
         });
+    }
+
+    @Override
+    protected int getLayoutInt() {
+        return R.layout.activity_newablumname;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected RecyclerView.Adapter getAdapter() {
+        return null;
     }
 
 

@@ -16,43 +16,21 @@ import music.lisong.com.lisongmusic.adapter.LastestStroryAdapter;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 public class CreateABlumActivity extends BaseActivity {
-    TwinklingRefreshLayout refreshLayout;
-    RecyclerView recyclerView;
     private LastestStroryAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(music.lisong.com.lisongmusic.R.layout.activity_main);
+    }
 
-        refreshLayout =
-                (TwinklingRefreshLayout) findViewById(music.lisong.com.lisongmusic.R.id.swipe_refresh_widget);
-        TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
-        refreshLayout.setHeaderView(headerView);
-        refreshLayout.setOverScrollRefreshShow(false);
-        refreshLayout.setEnableOverScroll(false);
-        refreshLayout.setEnableLoadmore(false);
-        refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
-            @Override
-            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        CreateABlumActivity.this.onRefresh();
-                    }
-                }, 100);
-            }
-        });
+    @Override
+    protected int getLayoutInt() {
+        return music.lisong.com.lisongmusic.R.layout.activity_main;
+    }
 
-
-        recyclerView = (RecyclerView) findViewById(music.lisong.com.lisongmusic.R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        // 设置item动画
-        recyclerView.setAdapter(getAdapter());
-
-
+    @Override
+    protected void initView() {
+        super.initView();
         findViewById(music.lisong.com.lisongmusic.R.id.view_search).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +51,7 @@ public class CreateABlumActivity extends BaseActivity {
 //        getAdapter().setNewData(ssss);
     }
 
-    private BaseQuickAdapter getAdapter() {
+    protected BaseQuickAdapter getAdapter() {
         if (adapter == null) {
             adapter = new LastestStroryAdapter(this);
 //            adapter.setOnLoadMoreListener(this);

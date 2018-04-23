@@ -36,8 +36,6 @@ public class SearchActivity extends AppCompatActivity {
 
     public static final String KY = "searchwords";
     List<KeyWord> keywords = new ArrayList<>();
-    TwinklingRefreshLayout refreshLayout;
-    RecyclerView recyclerView;
     private EditText et_key;
     private Button bt_search;
     private SearchStringAdapter adapter;
@@ -198,39 +196,6 @@ public class SearchActivity extends AppCompatActivity {
         return TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
     }
-//
-//    // 方法三：
-//    public String listToString3(List list, String separator) {
-//        StringBuilder sb = new StringBuilder();
-//        for (int i = 0; i < list.size(); i++) {
-//            sb.append(list.get(i));
-//            if (i < list.size() - 1) {
-//                sb.append(separator);
-//            }
-//        }
-//        return sb.toString();
-//    }
-//
-//    public void onRefresh() {
-//        getAdapter().setNewData(keywords);
-//    }
-//
-//    private BaseQuickAdapter getAdapter() {
-//        if (adapter == null) {
-//            adapter = new SearchStringAdapter();
-////            adapter.setOnLoadMoreListener(this);
-//            //杨立川
-//            recyclerView.addOnItemTouchListener(adapter.innerItemListner);
-//        }
-//        return adapter;
-//    }
-//    public void onRefresh() {
-//        ArrayList<Song> ssss = new ArrayList<>();
-//        for (int i = 0; i < 10; i++) {
-//            ssss.add(new Song("ddd",i));
-//        }
-//        getAdapter().setNewData(ssss);
-//    }
 }
 
 

@@ -20,42 +20,20 @@ import music.lisong.com.lisongmusic.utils.DatabaseHelper;
 import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 public class LatestPlayActivity extends BaseActivity {
-    TwinklingRefreshLayout refreshLayout;
-    RecyclerView recyclerView;
     private LastestStroryAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_latest);
+    }
 
-        refreshLayout =
-                (TwinklingRefreshLayout) findViewById(music.lisong.com.lisongmusic.R.id.swipe_refresh_widget);
-        TwinkingFreshLayout headerView = new TwinkingFreshLayout(this);
-        refreshLayout.setHeaderView(headerView);
-        refreshLayout.setOverScrollRefreshShow(false);
-        refreshLayout.setEnableOverScroll(false);
-        refreshLayout.setEnableLoadmore(false);
-        refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
-            @Override
-            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        LatestPlayActivity.this.onRefresh();
-                    }
-                }, 100);
-            }
-        });
+    @Override
+    protected int getLayoutInt() {
+        return R.layout.activity_latest;
+    }
 
-
-        recyclerView = (RecyclerView) findViewById(music.lisong.com.lisongmusic.R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        // 设置item动画
-        recyclerView.setAdapter(getAdapter());
-
+    @Override
+    protected void initView() {
+        super.initView();
 
         findViewById(R.id.view_back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +70,7 @@ public class LatestPlayActivity extends BaseActivity {
 
     }
 
-    private BaseQuickAdapter getAdapter() {
+    protected BaseQuickAdapter getAdapter() {
         if (adapter == null) {
             adapter = new LastestStroryAdapter(this);
 //            adapter.setOnLoadMoreListener(this);

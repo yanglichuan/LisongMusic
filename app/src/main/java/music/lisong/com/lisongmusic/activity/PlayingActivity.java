@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.media.session.PlaybackStateCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -360,11 +359,10 @@ public class PlayingActivity extends BaseActivity implements Callback, TickUtils
 
     private TextView tv_timeleft;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_playing);
 
+    @Override
+    protected void initView() {
+        super.initView();
         MusicServiceUtil.addPlayingCallback(this);
 
         TickUtils.addTickCallBack(this);
@@ -468,6 +466,23 @@ public class PlayingActivity extends BaseActivity implements Callback, TickUtils
                 }
             }
         });
+
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected int getLayoutInt() {
+        return R.layout.activity_playing;
+    }
+
+    @Override
+    protected RecyclerView.Adapter getAdapter() {
+        return null;
     }
 
     @Override
