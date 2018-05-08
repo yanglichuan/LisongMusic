@@ -85,7 +85,7 @@ public class MyAblumContentAdapter extends BaseQuickAdapter<MyAblumIncludeSong, 
         }
         tvname.setText(storyBean.getName());
 //        tvcount.setText("收录于" + storyBean.getBelongAblum());
-        tvcount.setText("作者："+storyBean.getAuthor());
+        tvcount.setText(""+storyBean.getAuthor());
 
         if (ablum != null && !TextUtils.isEmpty(ablum.getCoverImg())) {
             sdv.setImageURI(ablum.getCoverImg());

@@ -98,12 +98,12 @@ public class MyAblumContentActivity extends BaseActivity {
             tv_ablum_name.setText(author.getName());
         }
 
-        findViewById(R.id.view_search).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MyAblumContentActivity.this, SearchActivity.class));
-            }
-        });
+//        findViewById(R.id.view_search).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(MyAblumContentActivity.this, SearchActivity.class));
+//            }
+//        });
 
 
         findViewById(R.id.view_back).setOnClickListener(new View.OnClickListener() {
