@@ -63,16 +63,11 @@ public class MyAblumAdapter extends BaseQuickAdapter<MyAblum, BaseViewHolder> {
                     }
                 });
             } else {
-
                 Intent it = new Intent(context, MyAblumContentActivity.class);
                 it.putExtra("data", myAblum);
                 context.startActivity(it);
-
             }
-
-
         }
-
 
         @Override
         public void onItemChildClick(BaseQuickAdapter adapter, View v, int position) {

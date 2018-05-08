@@ -50,7 +50,7 @@ public class HotAuthorActivity extends BaseActivity {
 
         TextView tv_ablum_name = (TextView) findViewById(R.id.tv_ablum_name);
         if (tv_ablum_name != null) {
-            tv_ablum_name.setText("热门歌手");
+            tv_ablum_name.setText("歌手");
         }
 
 

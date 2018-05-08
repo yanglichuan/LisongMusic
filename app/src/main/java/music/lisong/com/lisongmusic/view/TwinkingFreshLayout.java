@@ -40,8 +40,6 @@ public class TwinkingFreshLayout extends FrameLayout implements IHeaderView {
     }
 
     private void createProgressView() {
-
-
         mCircleView = new ImageView(getContext());
         LayoutParams params = new LayoutParams(CommonUtils.dp2px(36), CommonUtils.dp2px(36), Gravity.CENTER);
         mCircleView.setLayoutParams(params);

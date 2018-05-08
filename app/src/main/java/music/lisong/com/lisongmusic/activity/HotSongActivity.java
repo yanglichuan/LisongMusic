@@ -53,7 +53,7 @@ public class HotSongActivity extends BaseActivity {
 
         TextView tv_ablum_name = (TextView) findViewById(R.id.tv_ablum_name);
         if (tv_ablum_name != null) {
-            tv_ablum_name.setText("热门歌曲");
+            tv_ablum_name.setText("歌曲");
         }
 
 

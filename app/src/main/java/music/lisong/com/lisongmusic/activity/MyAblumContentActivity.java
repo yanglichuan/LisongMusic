@@ -55,16 +55,15 @@ public class MyAblumContentActivity extends BaseActivity {
 
 
         if (selectSong != null) {
-            final MyAblumIncludeSong myAblumIncludeSong = new MyAblumIncludeSong(MyAblumActivity.toAddSong);
+            final MyAblumIncludeSong myAblumIncludeSong = new MyAblumIncludeSong(selectSong);
             myAblumIncludeSong.setBelongAblum(ablum.getName());
 
             BmobQuery<MyAblumIncludeSong> songBmobQuery = new BmobQuery<>();
             songBmobQuery.addWhereEqualTo("belongAblum", ablum.getName());
-            songBmobQuery.addWhereEqualTo("mp3url", MyAblumActivity.toAddSong.getMp3url());
+            songBmobQuery.addWhereEqualTo("mp3url", selectSong.getMp3url());
             songBmobQuery.findObjects(new FindListener<MyAblumIncludeSong>() {
                 @Override
                 public void done(List<MyAblumIncludeSong> list, BmobException e) {
-
                     if (list != null && list.size() > 0) {
                         ToastUtil.showMessage("已经存在");
                     } else {
@@ -73,14 +72,12 @@ public class MyAblumContentActivity extends BaseActivity {
                             public void done(String s, BmobException e) {
                                 if (e == null) {
                                     ToastUtil.showMessage("添加成功");
-                                    MyAblumActivity.toAddSong = null;
+                                    selectSong = null;
+                                    onRefresh();
                                 }
                             }
                         });
                     }
-
-
-                    onRefresh();
                 }
             });
         } else {
