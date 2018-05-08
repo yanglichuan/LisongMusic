@@ -53,7 +53,7 @@ public class HotSongAdapter extends BaseQuickAdapter<Song, BaseViewHolder> {
             ObjectAnimator.ofFloat(view, "scaleY", 1, 1.05f, 1).setDuration(300).start();
             ObjectAnimator.ofFloat(view, "scaleX", 1, 1.05f, 1).setDuration(300).start();
 
-            if(MyAblumContentActivity.toSlect){
+            if (MyAblumContentActivity.toSlect) {
                 Song ss = (Song) view.getTag();
                 MyAblumContentActivity.selectSong = ss;
 
@@ -62,9 +62,6 @@ public class HotSongAdapter extends BaseQuickAdapter<Song, BaseViewHolder> {
 
                 return;
             }
-
-
-
 
 
             ArrayList<Song> likongs = new ArrayList<>();

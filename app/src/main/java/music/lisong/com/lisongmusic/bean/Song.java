@@ -15,7 +15,8 @@ public class Song extends BmobObject implements Serializable {
     protected String mp3url;
 
 
-    public Song(){}
+    public Song() {
+    }
 
     public Song(String name, int count) {
         this.name = name;
@@ -81,7 +82,7 @@ public class Song extends BmobObject implements Serializable {
             return false;
         }
         Song other = (Song) o;
-        if (other.getObjectId()== this.getObjectId()) {
+        if (other.getObjectId() == this.getObjectId()) {
             return true;
         } else { // 下载使用
             if (other.getMp3url().equals(this.getMp3url())) {

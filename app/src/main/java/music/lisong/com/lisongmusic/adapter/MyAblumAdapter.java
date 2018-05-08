@@ -34,9 +34,7 @@ public class MyAblumAdapter extends BaseQuickAdapter<MyAblum, BaseViewHolder> {
             ObjectAnimator.ofFloat(view, "scaleY", 1, 1.05f, 1).setDuration(300).start();
             ObjectAnimator.ofFloat(view, "scaleX", 1, 1.05f, 1).setDuration(300).start();
 
-
             MyAblum myAblum = (MyAblum) view.getTag();
-
 
             if (MyAblumActivity.toAddSong != null) {
 

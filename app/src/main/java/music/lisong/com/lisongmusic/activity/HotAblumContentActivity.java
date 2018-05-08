@@ -29,6 +29,7 @@ public class HotAblumContentActivity extends BaseActivity {
     public static Song toAddSong = null;
     private HotSongAdapter adapter;
     public static HotAblum staticAB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,10 +74,10 @@ public class HotAblumContentActivity extends BaseActivity {
                 sss.findObjects(new FindListener<Song>() {
                     @Override
                     public void done(List<Song> list, BmobException e) {
-                        ArrayList<Song> thisSongs  = new ArrayList<>();
-                        for (int i=0;i<list.size();i++){
+                        ArrayList<Song> thisSongs = new ArrayList<>();
+                        for (int i = 0; i < list.size(); i++) {
                             Song s = list.get(i);
-                            if(staticAB.getSongs()!=null && staticAB.getSongs().contains(String.valueOf(s.getObjectId()))){
+                            if (staticAB.getSongs() != null && staticAB.getSongs().contains(String.valueOf(s.getObjectId()))) {
                                 thisSongs.add(s);
                             }
                         }

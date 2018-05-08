@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
 import music.lisong.com.lisongmusic.listener.BaseAdapterOnItemClickListener;
+
 public class SearchStringAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     public BaseAdapterOnItemClickListener innerItemListner = new BaseAdapterOnItemClickListener() {

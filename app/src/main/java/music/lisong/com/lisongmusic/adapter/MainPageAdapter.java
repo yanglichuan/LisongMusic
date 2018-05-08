@@ -32,9 +32,7 @@ public class MainPageAdapter extends BaseQuickAdapter<HotAblum, BaseViewHolder> 
             Intent it = new Intent(context, HotAblumContentActivity.class);
             HotAblumContentActivity.staticAB = o;
             context.startActivity(it);
-
         }
-
 
         @Override
         public void onItemChildClick(BaseQuickAdapter adapter, View v, int position) {

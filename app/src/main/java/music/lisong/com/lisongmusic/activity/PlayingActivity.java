@@ -602,7 +602,7 @@ public class PlayingActivity extends BaseActivity implements Callback, TickUtils
 
 
         if (tv_timeleft != null && TickUtils.getCurrent_close_mode() == TickUtils.CLOSE_MODE_OVER_NOW) {
-            Integer restSeconds = Long.valueOf((duration*1000 - progress) / 1000).intValue();
+            Integer restSeconds = Long.valueOf((duration * 1000 - progress) / 1000).intValue();
 
             Integer[] miniteSecond = new Integer[2];
             String timeExchangeV2 = CommonUtils.timeExchangeV2(restSeconds, miniteSecond);

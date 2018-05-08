@@ -133,7 +133,6 @@ public class MainActivity extends BaseActivity {
         });
 
 
-
         adapter.addHeaderView(vvv);
     }
 

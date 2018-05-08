@@ -54,7 +54,7 @@ public class MyAblumContentActivity extends BaseActivity {
         super.onResume();
 
 
-        if(selectSong!=null){
+        if (selectSong != null) {
             final MyAblumIncludeSong myAblumIncludeSong = new MyAblumIncludeSong(MyAblumActivity.toAddSong);
             myAblumIncludeSong.setBelongAblum(ablum.getName());
 
@@ -80,11 +80,10 @@ public class MyAblumContentActivity extends BaseActivity {
                     }
 
 
-
                     onRefresh();
                 }
             });
-        }else {
+        } else {
             onRefresh();
         }
     }
@@ -127,7 +126,7 @@ public class MyAblumContentActivity extends BaseActivity {
                     MyAblumIncludeSong ll = adapter.getData().get(m);
                     likongs.add(ll.toSong());
                 }
-                if(likongs==null || likongs.size()==0){
+                if (likongs == null || likongs.size() == 0) {
                     return;
                 }
 
@@ -150,7 +149,7 @@ public class MyAblumContentActivity extends BaseActivity {
                     MyAblumIncludeSong ll = adapter.getData().get(m);
                     likongs.add(ll.toSong());
                 }
-                if(likongs==null || likongs.size()==0){
+                if (likongs == null || likongs.size() == 0) {
                     return;
                 }
 
@@ -184,7 +183,7 @@ public class MyAblumContentActivity extends BaseActivity {
         ablum = (Ablum) getIntent().getSerializableExtra("data");
         author = (Author) getIntent().getSerializableExtra("author");
 
-        toSlect =false;
+        toSlect = false;
         selectSong = null;
         super.onCreate(savedInstanceState);
     }

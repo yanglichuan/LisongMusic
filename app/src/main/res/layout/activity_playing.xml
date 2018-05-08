@@ -168,20 +168,20 @@
 
                 <ImageView
                     android:id="@+id/view_clock"
-                    android:layout_centerHorizontal="true"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/lisong_clock1" />
 
                 <TextView
                     android:id="@+id/tv_timeleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:text=""
-                    android:textColor="@color/white"
-                    android:layout_alignParentBottom="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textColor="@color/white" />
 
             </RelativeLayout>
 

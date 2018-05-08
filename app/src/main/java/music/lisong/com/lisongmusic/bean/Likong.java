@@ -25,8 +25,8 @@ public class Likong extends BmobObject implements Serializable {
         mp3url = s.mp3url;
     }
 
-    public Song toSong(){
-        Song s = new Song(name,0);
+    public Song toSong() {
+        Song s = new Song(name, 0);
         s.id = id;
         s.name = name;
         s.author = author;

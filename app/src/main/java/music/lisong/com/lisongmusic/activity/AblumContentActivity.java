@@ -75,7 +75,7 @@ public class AblumContentActivity extends BaseActivity {
         findViewById(music.lisong.com.lisongmusic.R.id.view_playall).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(adapter.getData()==null || adapter.getData().size()==0){
+                if (adapter.getData() == null || adapter.getData().size() == 0) {
                     return;
                 }
                 //开始播放歌曲

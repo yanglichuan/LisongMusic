@@ -10,8 +10,6 @@ public class KeyWord extends BmobObject {
     }
 
 
-
-
     public String kyword;
 
     public String getKyword() {

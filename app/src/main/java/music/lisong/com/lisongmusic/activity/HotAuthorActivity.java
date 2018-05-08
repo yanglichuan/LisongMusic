@@ -24,6 +24,7 @@ import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 public class HotAuthorActivity extends BaseActivity {
     private HotAuthorAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +32,7 @@ public class HotAuthorActivity extends BaseActivity {
 
     @Override
     protected int getLayoutInt() {
-        return  R.layout.activity_hotablum;
+        return R.layout.activity_hotablum;
     }
 
     @Override

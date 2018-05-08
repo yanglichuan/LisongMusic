@@ -3,7 +3,7 @@ package music.lisong.com.lisongmusic.bean;
 
 public class MyAblumIncludeSong extends Song {
 
-    public MyAblumIncludeSong(Song s){
+    public MyAblumIncludeSong(Song s) {
         super();
         id = s.id;
         name = s.name;
@@ -14,7 +14,7 @@ public class MyAblumIncludeSong extends Song {
         mp3url = s.mp3url;
     }
 
-    public Song toSong(){
+    public Song toSong() {
         return this;
     }
 

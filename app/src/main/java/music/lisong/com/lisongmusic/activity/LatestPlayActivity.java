@@ -21,6 +21,7 @@ import music.lisong.com.lisongmusic.view.TwinkingFreshLayout;
 
 public class LatestPlayActivity extends BaseActivity {
     private LastestStroryAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +47,7 @@ public class LatestPlayActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                if(adapter.getData()==null || adapter.getData().size()==0){
+                if (adapter.getData() == null || adapter.getData().size() == 0) {
                     return;
                 }
                 //开始播放歌曲

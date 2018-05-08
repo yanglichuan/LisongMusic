@@ -68,7 +68,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Callback
     }
 
 
-    protected int getLayoutInt(){
+    protected int getLayoutInt() {
         return -1;
     }
 

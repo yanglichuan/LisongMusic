@@ -1,6 +1,7 @@
 package music.lisong.com.lisongmusic.activity;
 
 import android.os.CountDownTimer;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,7 +85,7 @@ public class TickUtils {
                 }
 
                 //做处理了
-                   MusicServiceUtil.pausePlay(Ap.application);
+                MusicServiceUtil.pausePlay(Ap.application);
                 //
                 setCountdownTimer(CLOSE_MODE_NO_OPEN);
             }
