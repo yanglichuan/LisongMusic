@@ -4,8 +4,11 @@ import android.text.TextUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+import music.lisong.com.lisongmusic.activity.PlayingActivity;
 import music.lisong.com.lisongmusic.bean.Song;
+import music.lisong.com.lisongmusic.utils.SpUtils;
 
 /**
  * 常量和静态变量
@@ -67,8 +70,29 @@ public class PlayingControlHelper {
 
 
     public static Song nextSong() {
+        int imode = PlayingActivity.MODE_CIRCLE;
+        String  mode = SpUtils.get(PlayingActivity.PLAYMODE);
+        if(!TextUtils.isEmpty(mode)){
+            imode = Integer.parseInt(mode);
+        }
+
+
         fromIndex++;
-        if (playList != null && playList.size() > 0 && fromIndex < playList.size()) {
+        if (playList != null && playList.size() > 0) {
+            if (imode == PlayingActivity.MODE_CIRCLE){
+                if(fromIndex < playList.size()){
+
+                }else if(fromIndex >= playList.size()){
+                    fromIndex = 0;
+                }
+
+            }else if(imode == PlayingActivity.MODE_REPEATONE){
+                fromIndex --;
+            }else if(imode ==PlayingActivity.MODE_RANDOM){
+                fromIndex = new Random().nextInt(playList.size());
+            }
+
+
             Song s =  playList.get(fromIndex);
             if(TextUtils.isEmpty(s.getCoverImg())){
                 s.setCoverImg("http://n.sinaimg.cn/ent/transform/20170920/M3G7-fykymue7408829.jpg");
@@ -81,8 +105,32 @@ public class PlayingControlHelper {
     }
 
     public static Song presong() {
+        int imode = PlayingActivity.MODE_CIRCLE;
+        String  mode = SpUtils.get(PlayingActivity.PLAYMODE);
+        if(!TextUtils.isEmpty(mode)){
+            imode = Integer.parseInt(mode);
+        }
+
+
         fromIndex--;
-        if (playList != null && playList.size() > 0 && fromIndex < playList.size() && fromIndex >= 0) {
+        if (playList != null && playList.size() > 0) {
+            if (imode == PlayingActivity.MODE_CIRCLE){
+                if(fromIndex < 0){
+                    fromIndex = playList.size()-1;
+                }else if(fromIndex >= 0){
+
+                }
+
+            }else if(imode == PlayingActivity.MODE_REPEATONE){
+                fromIndex ++;
+            }else if(imode ==PlayingActivity.MODE_RANDOM){
+                fromIndex = new Random().nextInt(playList.size());
+            }
+
+
+
+
+
             Song s =  playList.get(fromIndex);
             if(TextUtils.isEmpty(s.getCoverImg())){
                 s.setCoverImg("http://n.sinaimg.cn/ent/transform/20170920/M3G7-fykymue7408829.jpg");

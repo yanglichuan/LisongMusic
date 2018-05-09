@@ -29,6 +29,7 @@ import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -176,6 +177,54 @@ public class PlayingActivity extends BaseActivity implements Callback, TickUtils
                 dialog.dismiss();
             }
         });
+
+
+
+
+
+        view_playmode = dialog.findViewById(R.id.view_playmode);
+        iv_playmode = (ImageView) dialog.findViewById(R.id.iv_playmode);
+        tv_playmode = (TextView) dialog.findViewById(R.id.tv_playmode);
+
+
+
+        String  mode = SpUtils.get(PLAYMODE);
+        if(!TextUtils.isEmpty(mode)){
+            int imode = Integer.parseInt(mode);
+            setPlayMode(imode);
+        }else {
+            setPlayMode(MODE_CIRCLE);
+        }
+
+
+        iv_playmode.setClickable(false);
+        tv_playmode.setClickable(false);
+        view_playmode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String  mode = SpUtils.get(PLAYMODE);
+                if(!TextUtils.isEmpty(mode)){
+                    int imode = Integer.parseInt(mode);
+                    if(imode == MODE_CIRCLE){
+                        setPlayMode(MODE_REPEATONE);
+                        SpUtils.putString(PLAYMODE, String.valueOf(MODE_REPEATONE));
+                    }
+                    if(imode == MODE_REPEATONE){
+                        setPlayMode(MODE_RANDOM);
+                        SpUtils.putString(PLAYMODE, String.valueOf(MODE_RANDOM));
+                    }
+                    if(imode == MODE_RANDOM){
+                        setPlayMode(MODE_CIRCLE);
+                        SpUtils.putString(PLAYMODE, String.valueOf(MODE_CIRCLE));
+                    }
+                }else {
+                    setPlayMode(MODE_RANDOM);
+                    SpUtils.putString(PLAYMODE, String.valueOf(MODE_RANDOM));
+                }
+            }
+        });
+
+
 
 
         dialog.show();
@@ -361,14 +410,53 @@ public class PlayingActivity extends BaseActivity implements Callback, TickUtils
 
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MusicServiceUtil.removePlayingCallBack(this);
+        TickUtils.removeTickCallBack(this);
+
+    }
+
+
+    private View view_playmode;
+    private ImageView iv_playmode;
+    private TextView tv_playmode;
+
+
+
+    public static final int MODE_CIRCLE =1;
+    public static final int MODE_REPEATONE = 2;
+    public static final int MODE_RANDOM = 3;
+
+    private void setPlayMode(int iMode){
+       switch (iMode) {
+           case MODE_CIRCLE:
+               iv_playmode.setImageResource(R.drawable.icon_play_mode_repeat_list);
+               tv_playmode.setText("循环播放");
+               break;
+           case MODE_REPEATONE:
+               iv_playmode.setImageResource(R.drawable.icon_play_mode_repeat_one);
+               tv_playmode.setText("单曲循环");
+               break;
+           case MODE_RANDOM:
+               iv_playmode.setImageResource(R.drawable.icon_play_mode_list_one);
+               tv_playmode.setText("随机播放");
+               break;
+       }
+    }
+
+
+    public static final String PLAYMODE = "lsPlaymode";
+    @Override
     protected void initView() {
         super.initView();
         MusicServiceUtil.addPlayingCallback(this);
-
         TickUtils.addTickCallBack(this);
 
-        tv_timeleft = (TextView) findViewById(R.id.tv_timeleft);
 
+
+
+        tv_timeleft = (TextView) findViewById(R.id.tv_timeleft);
         view_tolike = (ImageView) findViewById(R.id.view_tolike);
         view_addablum = (ImageView) findViewById(R.id.view_addablum);
         view_clock = (ImageView) findViewById(R.id.view_clock);

@@ -26,6 +26,36 @@
             android:layout_height="1px"
             android:layout_alignParentBottom="true"
             android:background="#aaa"></View>
+        
+        
+
+         <LinearLayout
+             android:id="@+id/view_playmode"
+             android:layout_marginRight="10dp"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:gravity="center"
+             android:orientation="horizontal"
+             android:layout_centerVertical="true"
+             android:layout_alignParentRight="true">
+
+             <ImageView
+                 android:id="@+id/iv_playmode"
+                 android:layout_width="25dp"
+                 android:layout_height="25dp"
+                 android:src="@drawable/icon_play_mode_repeat_list"/>
+
+             <TextView
+                 android:layout_marginLeft="4dp"
+                 android:id="@+id/tv_playmode"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="循环播放"/>
+
+         </LinearLayout>
+        
+
+
 
     </RelativeLayout>
 
