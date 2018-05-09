@@ -13,18 +13,6 @@ import music.lisong.com.lisongmusic.utils.SpUtils;
 /**
  * 常量和静态变量
  */
-// 播放前变量准备
-//        PlayingControlHelper.setSystemAblumFlag(false);
-//        PlayingControlHelper.setUserAblumFlag(true);
-//
-//        PlayingControlHelper.setAblumBean(ablumBean);
-//        PlayingControlHelper.setAblumBean(null);
-
-//        PlayingControlHelper.setPlayingList(mObjects);
-//        PlayingControlHelper.setTitle("title");
-//        PlayingControlHelper.setPlayFrom(currentPlayIndex);
-//        PlayingControlHelper.play(getContext());
-
 public class PlayingControlHelper {
     private PlayingControlHelper() {
     }
@@ -34,8 +22,6 @@ public class PlayingControlHelper {
     }
 
     static List<Song> playList = new ArrayList<>();
-
-
     static int fromIndex = 0;
 
     public static void setPlayList(List<Song> list, int a) {
@@ -51,7 +37,7 @@ public class PlayingControlHelper {
         }
     }
 
-    public static void playIndex(int index){
+    public static void playIndex(int index) {
         if (playList != null && playList.size() > 0 && index < playList.size()) {
             fromIndex = index;
         }
@@ -59,8 +45,8 @@ public class PlayingControlHelper {
 
     public static Song getPlayingStory() {
         if (playList != null && playList.size() > 0 && fromIndex < playList.size()) {
-            Song s =  playList.get(fromIndex);
-            if(TextUtils.isEmpty(s.getCoverImg())){
+            Song s = playList.get(fromIndex);
+            if (TextUtils.isEmpty(s.getCoverImg())) {
                 s.setCoverImg("http://n.sinaimg.cn/ent/transform/20170920/M3G7-fykymue7408829.jpg");
             }
             return s;
@@ -68,37 +54,32 @@ public class PlayingControlHelper {
         return null;
     }
 
-
     public static Song nextSong() {
         int imode = PlayingActivity.MODE_CIRCLE;
-        String  mode = SpUtils.get(PlayingActivity.PLAYMODE);
-        if(!TextUtils.isEmpty(mode)){
+        String mode = SpUtils.get(PlayingActivity.PLAYMODE);
+        if (!TextUtils.isEmpty(mode)) {
             imode = Integer.parseInt(mode);
         }
-
-
         fromIndex++;
         if (playList != null && playList.size() > 0) {
-            if (imode == PlayingActivity.MODE_CIRCLE){
-                if(fromIndex < playList.size()){
+            if (imode == PlayingActivity.MODE_CIRCLE) {
+                if (fromIndex < playList.size()) {
 
-                }else if(fromIndex >= playList.size()){
+                } else if (fromIndex >= playList.size()) {
                     fromIndex = 0;
                 }
 
-            }else if(imode == PlayingActivity.MODE_REPEATONE){
-                fromIndex --;
-            }else if(imode ==PlayingActivity.MODE_RANDOM){
+            } else if (imode == PlayingActivity.MODE_REPEATONE) {
+                fromIndex--;
+            } else if (imode == PlayingActivity.MODE_RANDOM) {
                 fromIndex = new Random().nextInt(playList.size());
             }
-
-
-            Song s =  playList.get(fromIndex);
-            if(TextUtils.isEmpty(s.getCoverImg())){
+            Song s = playList.get(fromIndex);
+            if (TextUtils.isEmpty(s.getCoverImg())) {
                 s.setCoverImg("http://n.sinaimg.cn/ent/transform/20170920/M3G7-fykymue7408829.jpg");
             }
             return s;
-        }else {
+        } else {
             fromIndex--;
         }
         return null;
@@ -106,41 +87,33 @@ public class PlayingControlHelper {
 
     public static Song presong() {
         int imode = PlayingActivity.MODE_CIRCLE;
-        String  mode = SpUtils.get(PlayingActivity.PLAYMODE);
-        if(!TextUtils.isEmpty(mode)){
+        String mode = SpUtils.get(PlayingActivity.PLAYMODE);
+        if (!TextUtils.isEmpty(mode)) {
             imode = Integer.parseInt(mode);
         }
-
-
         fromIndex--;
         if (playList != null && playList.size() > 0) {
-            if (imode == PlayingActivity.MODE_CIRCLE){
-                if(fromIndex < 0){
-                    fromIndex = playList.size()-1;
-                }else if(fromIndex >= 0){
+            if (imode == PlayingActivity.MODE_CIRCLE) {
+                if (fromIndex < 0) {
+                    fromIndex = playList.size() - 1;
+                } else if (fromIndex >= 0) {
 
                 }
 
-            }else if(imode == PlayingActivity.MODE_REPEATONE){
-                fromIndex ++;
-            }else if(imode ==PlayingActivity.MODE_RANDOM){
+            } else if (imode == PlayingActivity.MODE_REPEATONE) {
+                fromIndex++;
+            } else if (imode == PlayingActivity.MODE_RANDOM) {
                 fromIndex = new Random().nextInt(playList.size());
             }
 
-
-
-
-
-            Song s =  playList.get(fromIndex);
-            if(TextUtils.isEmpty(s.getCoverImg())){
+            Song s = playList.get(fromIndex);
+            if (TextUtils.isEmpty(s.getCoverImg())) {
                 s.setCoverImg("http://n.sinaimg.cn/ent/transform/20170920/M3G7-fykymue7408829.jpg");
             }
             return s;
-        }else {
+        } else {
             fromIndex++;
         }
         return null;
     }
-
-
 }
