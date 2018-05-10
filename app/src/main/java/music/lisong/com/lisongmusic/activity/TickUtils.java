@@ -56,13 +56,13 @@ public class TickUtils {
         } else if (current_close_mode == CLOSE_MODE_OVER_NOW) {
             return;
         } else if (current_close_mode == CLOSE_MODE_15) {
-            totalTime = 1 * 60 * 1000;
+            totalTime = 15 * 60 * 1000;
         } else if (current_close_mode == CLOSE_MODE_30) {
-            totalTime = 2 * 60 * 1000;
+            totalTime = 30 * 60 * 1000;
         } else if (current_close_mode == CLOSE_MODE_60) {
-            totalTime = 3 * 60 * 1000;
+            totalTime = 60 * 60 * 1000;
         } else if (current_close_mode == CLOSE_MODE_90) {
-            totalTime = 4 * 60 * 1000;
+            totalTime = 90 * 60 * 1000;
         } else {
         }
 

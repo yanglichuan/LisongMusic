@@ -178,15 +178,9 @@ public class PlayingActivity extends BaseActivity implements Callback, TickUtils
             }
         });
 
-
-
-
-
         view_playmode = dialog.findViewById(R.id.view_playmode);
         iv_playmode = (ImageView) dialog.findViewById(R.id.iv_playmode);
         tv_playmode = (TextView) dialog.findViewById(R.id.tv_playmode);
-
-
 
         String  mode = SpUtils.get(PLAYMODE);
         if(!TextUtils.isEmpty(mode)){
@@ -195,7 +189,6 @@ public class PlayingActivity extends BaseActivity implements Callback, TickUtils
         }else {
             setPlayMode(MODE_CIRCLE);
         }
-
 
         iv_playmode.setClickable(false);
         tv_playmode.setClickable(false);
@@ -223,10 +216,6 @@ public class PlayingActivity extends BaseActivity implements Callback, TickUtils
                 }
             }
         });
-
-
-
-
         dialog.show();
     }
 
