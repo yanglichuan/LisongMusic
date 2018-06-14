@@ -25,13 +25,12 @@ public class SingerAblumAdapter extends BaseQuickAdapter<Ablum, BaseViewHolder> 
         public void onSimpleItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
             ObjectAnimator.ofFloat(view, "scaleY", 1, 1.05f, 1).setDuration(300).start();
             ObjectAnimator.ofFloat(view, "scaleX", 1, 1.05f, 1).setDuration(300).start();
-
-            Ablum o = (Ablum) view.getTag();
-
-
-            Intent it = new Intent(context, AblumContentActivity.class);
-            context.startActivity(it);
-
+            Ablum ablum = (Ablum) view.getTag();
+            if(ablum != null){
+                Intent it = new Intent(context, AblumContentActivity.class);
+                it.putExtra("data", ablum);
+                context.startActivity(it);
+            }
         }
 
 
